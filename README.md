@@ -54,8 +54,26 @@ The controller's logic is managed by a 5-state FSM. This architecture ensures th
 *   `S_FINISH`: Captures the final data and asserts the `data_valid` flag for one cycle.
 *   `S_DONE`: Enforces a mandatory "cool-down" period (`tCSH`) to ensure the ADC is ready for a subsequent transaction.
 
-  
-*(**Note:** You should create a simple FSM diagram and upload it to a site like Imgur, then replace the link above.)*
+```mermaid
+stateDiagram-v2
+    direction LR
+
+    [*] --> S_IDLE
+
+    S_IDLE --> S_SEND_CMD : start == 1
+    S_IDLE --> S_IDLE : else
+
+    S_SEND_CMD --> S_RECEIVE_DATA : 6 SCK cycles complete
+    S_SEND_CMD --> S_SEND_CMD : else
+
+    S_RECEIVE_DATA --> S_FINISH : 10 SCK cycles complete
+    S_RECEIVE_DATA --> S_RECEIVE_DATA : else
+
+    S_FINISH --> S_DONE : Always
+
+    S_DONE --> S_IDLE : tCSH delay complete
+    S_DONE --> S_DONE : else
+```
 
 ## Verification Strategy
 
