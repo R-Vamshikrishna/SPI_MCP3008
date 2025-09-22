@@ -76,17 +76,11 @@ The design was simulated using the Xilinx Vivado Simulator. The waveforms below 
 
 ### Full Transaction Overview
 
-This waveform shows the entire transaction, from the `start` pulse to the `data_valid` signal, with the final correct data (`150` hex) on the `ADC_data` bus.
-
-  
-*(**Note:** Replace this with your annotated "Plot 1" screenshot.)*
+The Full Waveform in Results shows the entire transaction, from the `start` pulse to the `data_valid` signal, with the final correct data (`150` hex) on the `ADC_data` bus.
 
 ### Detailed Command and Receive Phases
 
-These zoomed-in waveforms show the bit-level accuracy of the `MOSI` command sequence and the subsequent `MISO` data reception, matching the datasheet's timing diagrams perfectly.
-
-  
-*(**Note:** Replace this with a combined image of your annotated "Plot 2" and "Plot 3".)*
+These zoomed-in waveforms namely Transimition and Receiving in Results show the bit-level accuracy of the `MOSI` command sequence and the subsequent `MISO` data reception, matching the datasheet's timing diagrams perfectly.
 
 ## How to Use
 
